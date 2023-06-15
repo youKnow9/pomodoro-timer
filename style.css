@@ -235,4 +235,20 @@ input::-webkit-inner-spin-button {
     background-color: #7DB9B6;
 }
 
-
+@media (max-width: 500px) {
+    .timer__content, .toDo__content {
+        min-width: 300px;
+        margin: 0 20px 0 20px;
+    }
+    
+    .toDo__add-task, .toDo__edit-task {
+        width: 100%;
+    }
+    
+    .toDoList {
+        gap: 10px;
+    }
+    #parTask {
+        width: 60%;
+    }
+}

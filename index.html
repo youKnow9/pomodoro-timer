@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Timer</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@300;500;600;700;800;900&display=swap" rel="stylesheet"> 
+</head>
+<body id="bodyEl">
+    <section>
+        <div class="timer">
+            <div class="timer__content">
+                <div class="timer__settings-btn_wrapper">
+                    <button id="settingsBtn"><img src="./svg/settings.svg" alt="settings"></button>
+                </div>
+                <div>
+                    <p class="task_text"></p>
+                </div>
+                <div class="timer__display">
+                    <p id="timerWork">25:00</p>
+                    <div class="timer__managment-btn">
+                        <button id="startBtn">Start</button>
+                        <button id="resetBtn">Reset</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="toDo">
+            <div class="toDo__content">
+                <div class="toDo__add-task">
+                    <input id="toDoItem" type="text" maxlength="80" placeholder="Add task...">
+                    <button id="addTaskBtn"><img src="./svg/add.svg" alt="add"></button>
+                </div>
+                <div class="toDo__edit-task">
+                </div>
+            </div>
+        </div>
+
+        <div class="modal hidden_el">
+            <div class="modal__wrapper-content">
+                <div>
+                    <div>
+                        <label>Work time:
+                            <input id="userWorkTime" name="intervals" type="number" value="25">
+                        </label>
+                    </div>
+                    <div>
+                        <label>Short break time:
+                            <input id="userShortTime" name="intervals" type="number" value="5">
+                        </label>
+                    </div>
+                    <div>
+                        <label>Long break time:
+                            <input id="userLongTime" name="intervals" type="number" value="15">
+                        </label>
+                    </div>
+                </div>
+                <div>
+                    <button class="closeModal">Accept</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script src="app.js"></script>
+</body>
+</html>

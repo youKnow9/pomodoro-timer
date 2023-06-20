@@ -17,7 +17,7 @@
                 <div class="timer__settings-btn_wrapper">
                     <button id="settingsBtn"><img src="./svg/settings.svg" alt="settings"></button>
                 </div>
-                <div>
+                <div class="task_text__wrapper">
                     <p class="task_text"></p>
                 </div>
                 <div class="timer__display">
@@ -32,7 +32,7 @@
         <div id="toDo">
             <div class="toDo__content">
                 <div class="toDo__add-task">
-                    <input id="toDoItem" type="text" maxlength="80" placeholder="Add task...">
+                    <input id="toDoItem" type="text" maxlength="60" placeholder="Add task...">
                     <button id="addTaskBtn"><img src="./svg/add.svg" alt="add"></button>
                 </div>
                 <div class="toDo__edit-task">
@@ -42,26 +42,28 @@
 
         <div class="modal hidden_el">
             <div class="modal__wrapper-content">
-                <div>
+                <form action="">
                     <div>
-                        <label>Work time:
-                            <input id="userWorkTime" name="intervals" type="number" value="25">
-                        </label>
+                        <div>
+                            <label>Work time:
+                                <input id="userWorkTime" name="intervals" type="number" value="25" title="Enter amount of minutes (0-60)">
+                            </label>
+                        </div>
+                        <div>
+                            <label>Short break time:
+                                <input id="userShortTime" name="intervals" type="number" value="5" title="Enter amount of minutes (0-60)">
+                            </label>
+                        </div>
+                        <div>
+                            <label>Long break time:
+                                <input id="userLongTime" name="intervals" type="number" value="15" title="Enter amount of minutes (0-60)">
+                            </label>
+                        </div>
                     </div>
+                </form>
                     <div>
-                        <label>Short break time:
-                            <input id="userShortTime" name="intervals" type="number" value="5">
-                        </label>
+                        <input class="closeModal" type="button" value="Accept">
                     </div>
-                    <div>
-                        <label>Long break time:
-                            <input id="userLongTime" name="intervals" type="number" value="15">
-                        </label>
-                    </div>
-                </div>
-                <div>
-                    <button class="closeModal">Accept</button>
-                </div>
             </div>
         </div>
     </section>

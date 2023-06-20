@@ -14,6 +14,7 @@ let toDoItem = document.getElementById("toDoItem");
 let wrapperToDo = document.querySelector(".toDo__edit-task");
 let taskText = document.querySelector(".task_text");
 let toDo = document.getElementById("toDo");
+let intervals = document.getElementsByName("intervals");
 
 let timeWork = (userWorkTime.value * 60);
 let isPaused = true;
@@ -43,6 +44,16 @@ modal.addEventListener("click", (ev) => {
     if (ev.target.classList.contains("modal")) {
         modal.classList.add("hidden_el");
     };
+});
+
+intervals.forEach(element => {
+    element.addEventListener("input", (ev) => {
+        if ((element.value === "") || (element.value > 60) || (element.value <= 0)) {
+            closeModal.disabled = true;
+        } else {
+            closeModal.disabled = false;
+        }
+    });
 });
 
 closeModal.addEventListener("click", (ev) => {
@@ -153,7 +164,7 @@ let valueInput = toDoItem.addEventListener("input", (e) => {
 });
 
 addTask.addEventListener("click", (ev) => {
-    if (valueInput === undefined) {
+    if ((valueInput === undefined) || (valueInput === "")) {
         return valueInput = "";
     };
     
@@ -174,7 +185,7 @@ addTask.addEventListener("click", (ev) => {
 
     let parTask = document.createElement("p");
     parTask.innerText = valueInput;
-    parTask.id = 'parTask';
+    parTask.className = 'parTask';
 
     toDoList.appendChild(btnCheck);
     toDoList.appendChild(parTask);
@@ -194,9 +205,11 @@ addTask.addEventListener("click", (ev) => {
 
     btnDel.addEventListener("click", (ev) => {
         toDoList.style.display = "none";
+        taskText.innerHTML = ""
     });
 
-    document.getElementById("toDoItem").value = "";
+    document.getElementById("toDoItem").value = ""; 
+    valueInput = "";
     arrToDoList();
 });
 
@@ -207,10 +220,10 @@ toDo.addEventListener('keyup', event => {
 });
 
 function arrToDoList() {
-    let arrToDo = document.querySelectorAll(".toDoList");
-    for (let i = 0; i < arrToDo.length; i++) {
-        arrToDo[i].addEventListener("click", (ev) => {
-            taskText.innerHTML = arrToDo[i].children[1].textContent;
+    let arrToDo = document.querySelectorAll(".parTask");
+    arrToDo.forEach(el => {
+        el.addEventListener("click", (ev) => {
+            taskText.innerHTML = el.innerHTML;
         });
-    };
+    });
 };

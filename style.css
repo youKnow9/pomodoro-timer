@@ -70,6 +70,7 @@ button {
 }
 
 .timer__settings-btn_wrapper {
+    margin-top: 10px;
     display: flex;
     justify-content: flex-end
 }
@@ -82,10 +83,17 @@ button {
     margin: 20px 0 10px 0;
 }
 
+.task_text__wrapper {
+    max-width: 90%;
+    min-height: 20%;
+    align-self: center;
+}
+
 .task_text {
     text-align: center;
     font-size: 20px;
     height: 15px;
+    word-wrap: break-word;
 }
 
 .toDoList {
@@ -101,7 +109,7 @@ button {
     background-color:#3333334f;
 }
 
-#parTask {
+.parTask {
     width: 330px;
     overflow-wrap: break-word;
 }
@@ -118,13 +126,12 @@ button {
     display: flex;
     flex-direction: column;
     align-items: stretch;
-    justify-content: space-around;
+    justify-content: center;
     width: 100%;
     max-width: 480px;
-    min-height: 300px;
+    min-height: 350px;
     border-radius: 10px;
     border: 1px solid #342f3f;
-    padding-bottom: 40px;
 }
 
 .toDo__content {
@@ -209,7 +216,6 @@ input {
     width: 50px;
     max-height: 200px;
     text-align: center;
-    cursor: pointer;
     outline: none;
 }
 
@@ -248,7 +254,7 @@ input::-webkit-inner-spin-button {
     .toDoList {
         gap: 10px;
     }
-    #parTask {
+    .parTask {
         width: 60%;
     }
 }

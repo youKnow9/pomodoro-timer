@@ -60,6 +60,7 @@ closeModal.addEventListener("click", (ev) => {
     modal.classList.add('hidden_el');
     if (ev) {
         let a = userWorkTime.value * 60;// 0.1
+        console.log(a);
         let m = Math.floor(a / 60);
         let s = a % 60;
         s = s < 10 ? timerWork.innerHTML = `${m}:0${s}` : timerWork.innerHTML = `${m}:${s}`;
@@ -148,7 +149,13 @@ function updateMiddleBreak () {
 resetBtn.addEventListener("click", (ev) => {
     clearAllIntervals();
     timeWork = (userWorkTime.value * 60);
-    timerWork.innerHTML = `${userWorkTime.value}:00`;
+    if (timeWork < 10) {
+        timerWork.innerHTML = `0:0${userWorkTime.value * 60}`;
+    } else if ((timeWork < 60)) {
+        timerWork.innerHTML = `0:${userWorkTime.value * 60}`;
+    } else {
+        timerWork.innerHTML = `${userWorkTime.value * 60}:00`;
+    };
     if (resetBtn.classList.contains ("active_btn")) {
         resetBtn.classList.remove("active_btn");
         startBtn.classList.remove("active_btn");
@@ -227,6 +234,3 @@ function arrToDoList() {
         });
     });
 };
-
-
-// при ресете таймера при значении менее минуты 
